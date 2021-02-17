@@ -1,7 +1,8 @@
 package com.intive.patronage.verification.repository
 
-data class JokeJson(
-    val setup: String,
-    val delivery: String,
-    val category: String
+class JokeJson(
+    val setup: String?,
+    val delivery: String?,
+    val joke: String?,
+    val category: String?
 )

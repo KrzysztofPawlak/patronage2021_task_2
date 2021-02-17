@@ -1,6 +1,6 @@
 package com.intive.patronage.verification.domain
 
-data class Joke(
-    val setup: String,
-    val delivery: String
-)
+sealed class Joke {
+    data class TwoPartJoke(val setup: String, val delivery: String) : Joke()
+    data class SingleJoke(val joke: String) : Joke()
+}
