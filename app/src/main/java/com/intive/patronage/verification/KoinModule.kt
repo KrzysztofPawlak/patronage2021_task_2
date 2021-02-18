@@ -1,5 +1,6 @@
 package com.intive.patronage.verification
 
+import com.intive.patronage.verification.db.repository.JokeRepository
 import com.intive.patronage.verification.presentation.MainViewModel
 import com.intive.patronage.verification.repository.JokeService
 import com.intive.patronage.verification.repository.NetworkRepository
@@ -7,6 +8,7 @@ import com.intive.patronage.verification.repository.Repository
 import com.intive.patronage.verification.repository.RepositoryImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -16,7 +18,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 private const val BASE_URL = "https://v2.jokeapi.dev/"
 
 val mainModule = module {
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), JokeRepository(androidApplication())) }
 }
 
 val repositoryModule = module {
