@@ -4,5 +4,6 @@ class JokeJson(
     val setup: String?,
     val delivery: String?,
     val joke: String?,
-    val category: String?
+    val category: String,
+    val type: String
 )

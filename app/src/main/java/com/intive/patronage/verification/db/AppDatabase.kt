@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.intive.patronage.verification.db.dao.JokeDao
 import com.intive.patronage.verification.db.model.JokeEntry
 
-@Database(entities = [JokeEntry::class], version = 2)
+@Database(entities = [JokeEntry::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun jokeDao(): JokeDao
 

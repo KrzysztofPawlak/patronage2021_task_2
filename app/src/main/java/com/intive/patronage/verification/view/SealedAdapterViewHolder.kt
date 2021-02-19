@@ -17,6 +17,8 @@ sealed class SealedAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(i
             with(itemView) {
                 setup_text.text = joke.setup
                 delivery_text.text = joke.delivery
+                category_two_part_text.visibility =
+                    if (joke.category == Joke.CATEGORY_TO_PROMOTE_AS_GOOD_JOKE) View.VISIBLE else View.GONE
             }
         }
 
@@ -33,6 +35,8 @@ sealed class SealedAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(i
         fun applyItem(joke: Joke.SingleJoke) {
             with(itemView) {
                 joke_text.text = joke.joke
+                category_single_text.visibility =
+                    if (joke.category == Joke.CATEGORY_TO_PROMOTE_AS_GOOD_JOKE) View.VISIBLE else View.GONE
             }
         }
 

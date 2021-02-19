@@ -6,11 +6,11 @@ import java.lang.UnsupportedOperationException
 
 fun JokeEntry.toDomain(): Joke {
     return when (type) {
-        "single" -> {
-            Joke.SingleJoke(text)
+        Joke.TYPE_SINGLE -> {
+            Joke.SingleJoke(text, category)
         }
-        "twoPart" -> {
-            Joke.TwoPartJoke(text, text2)
+        Joke.TYPE_TWO_PART -> {
+            Joke.TwoPartJoke(text, text2, category)
         }
         else -> {
             throw UnsupportedOperationException()

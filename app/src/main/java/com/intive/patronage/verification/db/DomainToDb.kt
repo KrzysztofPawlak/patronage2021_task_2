@@ -10,8 +10,8 @@ fun Joke.toDb(): JokeEntry {
                 0,
                 setup,
                 delivery,
-                category = "test",
-                type = "twoPart"
+                category,
+                type = Joke.TYPE_TWO_PART
             )
         }
         is Joke.SingleJoke -> {
@@ -19,8 +19,8 @@ fun Joke.toDb(): JokeEntry {
                 0,
                 joke,
                 text2 = "",
-                category = "test",
-                type = "single"
+                category = category,
+                type = Joke.TYPE_SINGLE
             )
         }
     }

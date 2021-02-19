@@ -31,4 +31,19 @@
         app:layout_constraintTop_toBottomOf="@+id/setup_text"
         tools:text="They work below C-level." />
 
+    <TextView
+        android:id="@+id/category_two_part_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/teal_200"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delivery_text"
+        android:gravity="right"
+        android:text="@string/good_joke_text"
+        tools:text="Good Joke!" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
