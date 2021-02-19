@@ -12,6 +12,8 @@ import com.intive.patronage.verification.view.MainActivityLoading
 import com.intive.patronage.verification.view.MainActivityModel
 import com.intive.patronage.verification.view.MainActivitySuccess
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.observables.ConnectableObservable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class MainViewModel(private val repository: Repository, private val jokeRepository: JokeRepository) : BaseViewModel() {
@@ -34,6 +36,8 @@ class MainViewModel(private val repository: Repository, private val jokeReposito
             .toObservable()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .publish()
+            .autoConnect(2)
         toObservable
             .map { MainActivitySuccess(jokes.apply { add(it) }) as MainActivityModel }
             .startWithItem(MainActivityLoading)
@@ -44,5 +48,9 @@ class MainViewModel(private val repository: Repository, private val jokeReposito
             .onErrorComplete()
             .subscribe { jokeRepository.insert(it.toDb()) }
             .let { addDisposable(it) }
+    }
+
+    fun getJokes(): MutableList<Joke> {
+        return jokes
     }
 }

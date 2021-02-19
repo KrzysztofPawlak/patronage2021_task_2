@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val adapter = ListAdapter()
+        adapter.items = viewModel.getJokes()
+
         recycler_view.adapter = adapter
         recycler_view.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
 
